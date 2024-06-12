@@ -46,7 +46,7 @@ namespace DepartmentReminderAppDemo.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Title,DueDate,Description,DepartmentId")] Reminder reminder)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 _context.Add(reminder);
                 await _context.SaveChangesAsync();
@@ -75,7 +75,7 @@ namespace DepartmentReminderAppDemo.Controllers
         {
             if (id != reminder.Id) return NotFound();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
