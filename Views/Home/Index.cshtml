@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to the Department Reminder App!</h1>
+        <p class="lead">This is a simple ASP.NET Core MVC application to manage departments and reminders.</p>
+        <hr class="my-4">
+        <p>Use the buttons below to navigate to the respective sections.</p>
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Index", "Department")" role="button">Manage Departments</a>
+        <a class="btn btn-success btn-lg" href="@Url.Action("Index", "Reminder")" role="button">Manage Reminders</a>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Manage Departments</h5>
+                    <p class="card-text">Create, update, and view hierarchical structures of departments.</p>
+                    <a href="@Url.Action("Index", "Department")" class="btn btn-primary">Go to Departments</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Set Reminders</h5>
+                    <p class="card-text">Create and manage reminders to ensure you don't miss important dates.</p>
+                    <a href="@Url.Action("Index", "Reminder")" class="btn btn-success">Go to Reminders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

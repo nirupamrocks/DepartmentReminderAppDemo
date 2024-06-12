@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DepartmentReminderAppDemo.Models.Reminder>
+
+@{
+    ViewData["Title"] = "Reminders";
+     
+}
+
+<!-- Custom styles can be added here -->
+@section Styles {
+    <link rel="stylesheet" href="~/css/custom.css" />
+}
+
+<div class="container my-4">
+    <h1 class="text-center mb-4">Reminders</h1>
+
+    <div class="text-right mb-3">
+        <a href="@Url.Action("Create", "Reminder")" class="btn btn-success">
+            <i class="fas fa-plus"></i> Create New Reminder
+        </a>
+    </div>
+
+    <table class="table table-bordered table-hover table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Description</th>
+                <th scope="col">Department</th>
+                <th scope="col">Notified</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var reminder in Model)
+            {
+                <tr>
+                    <td>@reminder.Title</td>
+                    <td>@reminder.DueDate.ToString("MM/dd/yyyy HH:mm")</td>
+                    <td>@reminder.Description</td>
+                    <td>@reminder.Department?.Name</td>
+                    <td>
+                        @if (reminder.IsNotified)
+                        {
+                            <span class="badge badge-success">Yes</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-secondary">No</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Reminder", new { id = reminder.Id })" class="btn btn-primary btn-sm">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <a href="@Url.Action("Details", "Reminder", new { id = reminder.Id })" class="btn btn-info btn-sm">
+                            <i class="fas fa-info-circle"></i> Details
+                        </a>
+                        <a href="@Url.Action("Delete", "Reminder", new { id = reminder.Id })" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Optionally, include scripts for custom interactivity -->
+@section Scripts {
+    <script src="~/js/custom.js"></script>
+}

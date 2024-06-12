@@ -1,0 +1,20 @@
+﻿.table th, .table td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.btn {
+    margin: 0 5px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.my-4 {
+    margin: 2rem 0;
+}
+
+.btn-primary, .btn-success, .btn-info, .btn-danger {
+    color: white;
+}
