@@ -37,7 +37,7 @@ namespace DepartmentReminderApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Name,ParentDepartmentId")] Department department, IFormFile logoFile)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 if (logoFile != null && logoFile.Length > 0)
                 {
@@ -75,7 +75,7 @@ namespace DepartmentReminderApp.Controllers
         {
             if (id != department.Id) return NotFound();
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
